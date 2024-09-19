@@ -159,7 +159,7 @@ HRESULT MindEyeWave::load(HANDLE hFile)
 HRESULT MindEyeWave::save(HANDLE hFile)
 {
     DWORD dwWrittenBytes = 0;
-    if (!::WriteFile(hFile, this,  static_cast<DWORD>((char *)&bBufferData - (char *)&dwChunkID), &dwWrittenBytes, NULL))
+    if (!::WriteFile(hFile, &bBufferData,  static_cast<DWORD>((char *)&bBufferData - (char *)&dwChunkID), &dwWrittenBytes, NULL))
     {
         return ::GetLastError();
     }
